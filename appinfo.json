@@ -1,0 +1,19 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "pebble@albmail.de",
+    "longName": "Test",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "shortName": "Test",
+    "uuid": "526aa0b5-8bbf-465d-be91-83fc49389383",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
