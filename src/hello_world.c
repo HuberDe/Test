@@ -1,16 +1,13 @@
+#include "blub.h"
 #include <pebble.h>
 
 Window *window;
 TextLayer *text_layer;
 
-void setTextLayerBounds() {
-  layer_set_bounds(text_layer_get_layer(text_layer), GRect(0, 0, 144, 20));
-  //layer_mark_dirty(text_layer_get_layer(text_layer));
-}
 void handle_init(void) {
 	// Create a window and text layer
 	window = window_create();
-	text_layer = text_layer_create(GRect(0, 50, 144, 40));
+	text_layer = text_layer_create(GRect(0, 0, 144, 154));
 	
 	// Set the text, font, and text alignment
 	text_layer_set_text(text_layer, "Hi, I'm a Pebble!");
@@ -20,13 +17,21 @@ void handle_init(void) {
 	// Add the text layer to the window
 	layer_add_child(window_get_root_layer(window), text_layer_get_layer(text_layer));
 
-  setTextLayerBounds();
-  
 	// Push the window
 	window_stack_push(window, true);
-	
-	// App Logging!
-	APP_LOG(APP_LOG_LEVEL_DEBUG, "Just pushed a window!");
+
+  bool bDoEndDay = false;
+                
+  show_blub(&bDoEndDay);
+
+  if(bDoEndDay)
+  {
+    text_layer_set_text(text_layer, "Yes");
+  }
+  else
+  {
+    text_layer_set_text(text_layer, "No");
+  }
 }
 
 void handle_deinit(void) {
